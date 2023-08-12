@@ -4,6 +4,8 @@
 
 import logging
 import sys
+import os
+os.environ['PYOPENGL_PLATFORM'] = "osmesa"
 
 
 def start(user_mvc_cfg_fn: str):
