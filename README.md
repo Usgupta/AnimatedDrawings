@@ -1,6 +1,8 @@
+# ME344: INTRODUCTION TO HIGH PERFORMANCE COMPUTING FINAL PROJECT
 
-Assumptions
-1. you have a running master node and compute node with rocky linux 8 installed on them
+This project is about running the following repository https://github.com/facebookresearch/AnimatedDrawings on an HPC cluster and using compute node to run the program.
+
+We Assume that you have a running master node and compute node with rocky linux 8 installed on them
 
 ssh to cluster, where C is your cluster number 
 
