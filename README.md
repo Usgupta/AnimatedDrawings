@@ -296,6 +296,7 @@ Writing video to: /home/student/AnimatedDrawings/video.gif
 100%|██████████| 339/339 [00:25<00:00, 13.21it/s]
 
 ```
+<img src='unused\ files/video.gif' width="256" height="256" /> </br></br></br>
 
 Troubleshooting Steps:
 
