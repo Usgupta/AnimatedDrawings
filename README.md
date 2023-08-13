@@ -296,7 +296,7 @@ Writing video to: /home/student/AnimatedDrawings/video.gif
 100%|██████████| 339/339 [00:25<00:00, 13.21it/s]
 
 ```
-<img src='./unused\ files/video.gif' width="200" height="200" /> </br></br></br>
+![video](https://github.com/Usgupta/AnimatedDrawings/assets/57800546/d5b5077a-08d9-41d5-add3-ff56e70cae30)
 
 Troubleshooting Steps:
 
