@@ -18,8 +18,8 @@ node_modules
 **/log.txt
 examples/garlic_out
 **/*.mp4
-**/*.gif
+# **/*.gif
 
 # DO include .gifs used by the Readme
-!media/*.gif
+# !media/*.gif
 
