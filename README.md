@@ -1,8 +1,12 @@
 # ME344: INTRODUCTION TO HIGH PERFORMANCE COMPUTING FINAL PROJECT
 
-This project is about running the following repository https://github.com/facebookresearch/AnimatedDrawings on an HPC cluster and using compute node to run the program.
+## About
 
-We Assume that you have a running master node and compute node with rocky linux 8 installed on them
+This project is about running an implementation of the algorithm described in the paper, `A Method for Animating Children's Drawings of the Human Figure' (to appear in Transactions on Graphics and to be presented at SIGGRAPH 2023), implemented in this repo:  https://github.com/facebookresearch/AnimatedDrawings on an HPC cluster and using compute node to run the program.
+
+We assume that you have a running master node and compute node with rocky linux 8 installed on them
+
+## Instructions
 
 ssh to cluster, where C is your cluster number 
 
@@ -28,7 +32,7 @@ You can check if the packages have been installed by running the following
 rpm -q <package name>
 ```
 
-It will output the complte file name of the package if the package is installed, otherwise it will just output "package not installed"
+It will output the complte file name of the package if the package is installed, otherwise it will just output `package not installed`
 
 For instance 
 
@@ -114,6 +118,9 @@ wwsh file resync passwd shadow group
 wwsh ssh compute-* /warewulf/bin/wwgetfiles
 ```
 
+You might see error messages for `wwsh ssh compute-* /warewulf/bin/wwgetfiles
+` if the user already exists, you may ignore them
+
 Switch to  `student` user and execute the following commands
 
 NOTE All commands below should not be executed as `root` user. 
@@ -160,7 +167,7 @@ Make sure to resolve any issues with initialising conda before proceeding. Refer
 
 Close and reopen your terminal for the changes to take effect
 
-Now clone the following repo:
+Now clone the following repo: 
 
 ```
 git clone https://github.com/Usgupta/AnimatedDrawings.git
@@ -190,7 +197,7 @@ conda activate animated-drawings
 you should see animated-drawings beside your bash path, fot instance
 
 ```
-(animated-drawings) [student@hpcc-cluster-21 AnimatedDrawings]$
+(animated-drawings) [student@hpcc-cluster-[C] AnimatedDrawings]$
 ```
 
 Make sure the environment is activated before proceeding as it contains the necessary packages to run the program
@@ -263,12 +270,13 @@ Now let us get the jupyter notebook link, run the below command and check the ou
 egrep 'compute|localhost' slurm-*.out
 ```
 
-You should an output with localhost link `http://localhost:8888/?token=`
+You should an output with localhost link which starts with something like this- `http://localhost:8888/?token=`
+
 
 Since the compute node generated the jupyter notebook, the localhost of compute node is not accessible by our computer. Hence we use the below command to map the port of the compute node to the port on our local machine
 
 
-Open command prompt on your local machine (remember on the local machine and not in the cluster ) 
+Open command prompt on your local machine (remember on the local machine and not in the cluster) 
 
 Run the following command 
 
@@ -276,7 +284,9 @@ Run the following command
 ssh -L 8888:localhost:8888 student@hpcc-cluster-[C] -t ssh -L 8888:localhost:8888 compute-1-1
 ```
 
-If you see any issues like port not found or port in use, it is likely a local machine issue, you may restart the computer or try killing the process which is using that port
+If you see any issues like port not found or port in use, it is likely a local machine issue, you may restart the computer or try killing the process which is using that port. 
+
+If the command works correctly, you should not see any output, and your local machine should be connected to your compute node running the jupyter notebook
 
 
 Now you copy paste the link you got from the slurm script in the browser, you should be able to open jupyter
@@ -300,15 +310,15 @@ Writing video to: /home/student/AnimatedDrawings/video.gif
 ```
 ![video](https://github.com/Usgupta/AnimatedDrawings/assets/57800546/d5b5077a-08d9-41d5-add3-ff56e70cae30)
 
-Troubleshooting Steps:
+## Troubleshooting Steps:
 
-AttributeError: 'GLXPlatform' object has no attribute 'OSMesa'
+ AttributeError: 'GLXPlatform' object has no attribute 'OSMesa'
 
 ssh to compute node, run python and set the PYOPENGL PLATFORM VARIABLE to osmesa. Below are the commands
 
 ```
 ssh student@compute-1-1
-run python
+python
 export PYOPENGL_PLATFORM=osmesa
 ```
 
